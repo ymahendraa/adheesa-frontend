@@ -1,0 +1,71 @@
+<div class="container-lg">
+    <div *ngIf="currentPasien">
+        <h1>{{header}}, {{currentPasien.nama_pasien}}</h1>
+        <p>{{currentPasien.pasien_id}}/120192</p>
+        <p>{{currentPasien.tanggal_lahir}}</p>
+        <p>{{currentPasien.tempat_lahir}}</p>
+        <p>{{currentPasien.no_hp}}</p>
+        <p>{{currentPasien.pekerjaan}}</p>
+        <p>{{currentPasien.alamat}}</p>
+        <p>{{currentPasien.alergi_obat}}</p>
+    </div>
+
+    <div *ngIf="currentPasien">
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <!-- <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 200px;">
+                            <input type="text"
+                            class="form-control"
+                            placeholder="Cari berdasarkan nama"
+                            [(ngModel)]="nama"
+                            (keydown.enter)="searchNama()"
+                            (keyup)="searchNama()"
+                            />
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-outline-secondary" (click)="searchNama()"><fa-icon [icon]="faSearch"></fa-icon></button>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                
+            
+                <div class="card-body table-responsive p-0 " style="height: 430px;">
+                    <table class="table table-head-fixed table-hover">
+                    <thead>
+                        <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Tanggal</th>
+                        <th scope="col">Unsur/Regio</th>
+                        <th scope="col">Keluhan</th>
+                        <th scope="col">Perawatan</th>
+                        <th scope="col">Rencana Perawatan</th>
+                        <th scope="col">Biaya</th>
+                        <th scope="col">DPJP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <!-- <tr *ngFor="let konsul of konsuls;let i = index" [class.active]="i == currentIndex" (click)="setActivePasien(pasien, i)" [routerLink]="[ '/pasien', pasien.pasien_id ]"> -->
+                    <tr *ngFor="let konsul of konsuls;let i = index" >
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td> {{konsul.pasien_id}}/010221 </td>
+                        <td> {{konsul.tanggal}} </td>
+                        <td> {{konsul.unsur_regio}} </td>
+                        <td> {{konsul.keluhan}} </td>
+                        <td> {{konsul.perawatan}} </td>
+                        <td> {{konsul.rencana_perawatan}}</td>
+                        <td> {{konsul.biaya}} </td>
+                        <td> {{konsul.dpjp}} </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+    
+    
+<button class="btn btn-primary" routerLink="/pasien/{{currentPasien.pasien_id}}/konsultasi">tambah pemeriksaan</button>
+</div>
+

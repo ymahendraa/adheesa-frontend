@@ -1,0 +1,10 @@
+.navbar {
+    background-color: rgba(67, 153, 202, 0.692);
+    height: 100px;
+}
+.active {
+    /* background:#175a8167; */
+    /* border-radius: 10px; */
+    font-weight:600;
+    font-size: large;
+ }

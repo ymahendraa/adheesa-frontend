@@ -1,0 +1,104 @@
+<div class="container-lg">
+    <h1>{{header}}</h1>
+      <div class="form">
+          <form autocomplete="off">
+              <!-- <div class="form-group row">
+                <label for="namaPasien" class="col-sm-2 col-form-label">Nama Pasien</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="namaPasien" required [(ngModel)]="riwayat.nama" name="nama">
+                </div>
+              </div> -->
+              <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Tanggal Pemeriksaan</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="riwayat.tanggal" ngbDatepicker #d="ngbDatepicker" (ngModelChange) = "showDate(riwayat.tanggal)">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                    </div>
+                    <!-- <p>Adalah {{date}}</p> -->
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="tempatLahir" class="col-sm-2 col-form-label">Unsur Regio</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="unsurRegio" required [(ngModel)]="riwayat.unsur_regio" name="unsurRegio">
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                <label for="alamat" class="col-sm-2 col-form-label">Keluhan</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="keluhan" required [(ngModel)]="riwayat.keluhan" name="keluhan">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="noTelp" class="col-sm-2 col-form-label">Perawatan</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="perawatan" required [(ngModel)]="riwayat.perawatan" name="perawatan">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="pekerjaan" class="col-sm-2 col-form-label">Rencana Perawatan</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="rencana" required [(ngModel)]="riwayat.rencana_perawatan" name="rencana">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="pekerjaan" class="col-sm-2 col-form-label">Biaya</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="biaya" required [(ngModel)]="riwayat.biaya" name="biaya">
+                </div>
+              </div>
+              <!-- <div class="form-group row">
+                <div class="col-sm-2">Riwayat Penyakit Sistemik</div>
+                <div class="col-sm-10">
+                  <div class="form-check" *ngFor="let item of checkboxDataList">
+                      <input class="form-check-input" type="checkbox" [value]="item.label" (change)="getPenyakitId($event,item.label)">
+                    <label class="form-check-label" >
+                      {{item.label}}
+                    </label>
+                  </div>
+                  <input type="text" class="form-control" [(ngModel)]="penyakitDll" name="penyakit" placeholder="dll">
+  
+                  <div *ngIf="">
+                    <textarea rows="4" cols="50" name="dll" placeholder="Penyakit sistemik lainnya" ></textarea>
+                  </div>
+  
+                </div>
+              </div> -->
+              <fieldset class="form-group">
+                <div class="row">
+                  <legend class="col-form-label col-sm-2 pt-0">DPJP</legend>
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="drg.Kamil" (change)="radioChangeHandler($event)">
+                      <label class="form-check-label" for="gridRadios1">
+                        drg.Muhammad Kamil Nur
+                      </label>
+                      <!-- <div *ngIf="cekAlergi=='ya' ">
+                        <input type="text" class="form-control" id="alergi" [(ngModel)]="pasien.alergi" name="alergi" placeholder="Jenis Obat">
+                      </div> -->
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="drg.Ammar" (change)="radioChangeHandler($event)">
+                      <label class="form-check-label" for="gridRadios2">
+                        drg.Ammar
+                      </label>
+                    </div>
+                    
+                  </div>
+                </div>
+              </fieldset>
+              
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary" (click)="saveKonsul()">Simpan</button>
+                </div>
+              </div>
+            </form>
+      </div>
+      
+  </div>
+  

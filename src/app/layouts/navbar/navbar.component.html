@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light" >
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/home">
+        <img src="./assets/img/Adheesa1.png" width="60" height="60" class="d-inline-block align-center" alt="">
+      </a>
+      <a class="navbar-brand mb-0 h1" routerLink="/home">
+        Adheesa Dental Care
+      </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 " >
+          <li class="nav-item" [routerLinkActive]="['active']">
+            <a class="nav-link" routerLink="/registrasi">Registrasi Pasien</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']">
+            <a class="nav-link" routerLink="/pasien">Data Base Pasien</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']">
+            <a class="nav-link" routerLink="/kunjunganHarian">Kunjungan Harian</a>
+          </li>
+          <li ngbDropdown class="nav-item">
+            <a href (click)="false" class="nav-link" ngbDropdownToggle>Laporan</a>
+            <div ngbDropdownMenu>
+              <button ngbDropdownItem>Harian</button>
+              <button ngbDropdownItem>Bulanan</button>
+              <div class="dropdown-divider"></div>
+              <button ngbDropdownItem>Laboratorium</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
