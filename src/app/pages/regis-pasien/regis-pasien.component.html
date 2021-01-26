@@ -1,14 +1,34 @@
 <div class="container-lg">
   <h1>{{header}}</h1>
     <div class="form">
-        <form autocomplete="off">
-
+        <form autocomplete="on">
             <div class="form-group row">
               <label for="namaPasien" class="col-sm-2 col-form-label">Nama Pasien</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="namaPasien" required [(ngModel)]="pasien.nama" name="nama">
               </div>
             </div>
+            <fieldset class="form-group">
+              <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Jenis Kelamin</legend>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <div>
+                      <input class="form-check-input" type="radio" name="gridRadios" id="pria" value="Pria" (change)="getJK($event)">
+                      <label class="form-check-label" for="pria">
+                        Pria
+                      </label>
+                    </div>
+                    <div>
+                      <input class="form-check-input" type="radio" name="gridRadios" id="wanita" value="Wanita" (change)="getJK($event)"checked>
+                      <label class="form-check-label" for="wanita">
+                        Wanita
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
             <div class="form-group row">
               <label for="tempatLahir" class="col-sm-2 col-form-label">Tempat Lahir</label>
               <div class="col-sm-10">
@@ -19,7 +39,7 @@
                 <label for="inputPassword3" class="col-sm-2 col-form-label">Tanggal Lahir</label>
                 <div class="col-sm-10">
                   <div class="input-group">
-                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="pasien.tanggalLahir" ngbDatepicker #d="ngbDatepicker" (ngModelChange) = "showDate(pasien.tanggalLahir)">
+                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="pasien.tanggalLahir" ngbDatepicker #d="ngbDatepicker" (ngModelChange) = "showDate(pasien.tanggalLahir)" [minDate]="{year: 1945, month:1, day: 1}">
                     <div class="input-group-append">
                       <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
                     </div>
@@ -49,7 +69,7 @@
               <div class="col-sm-2">Riwayat Penyakit Sistemik</div>
               <div class="col-sm-10">
                 <div class="form-check" *ngFor="let item of checkboxDataList">
-                    <input class="form-check-input" type="checkbox" [value]="item.label" (change)="getPenyakitId($event,item.label)">
+                    <input class="form-check-input" type="checkbox" [value]="item.label" (change)="getPenyakitId($event,item.label)" >
                   <label class="form-check-label" >
                     {{item.label}}
                   </label>
@@ -64,7 +84,35 @@
             </div>
             <fieldset class="form-group">
               <div class="row">
-                <legend class="col-form-label col-sm-2 pt-0">Alergi Obat</legend>
+                <legend class="col-form-label col-sm-2 pt-0">Sumber Informasi Klinik</legend>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <div>
+                      <input class="form-check-input" type="radio" name="gridRadios" id="ig" value="Instagram" (change)="getInfo($event)">
+                      <label class="form-check-label" for="ig">
+                        Instagram
+                      </label>
+                    </div>
+                    <div>
+                      <input class="form-check-input" type="radio" name="gridRadios" id="google" value="Google" (change)="getInfo($event)"checked>
+                      <label class="form-check-label" for="google">
+                        Google
+                      </label>
+                    </div>
+                    <div>
+                      <input class="form-check-input" type="radio" name="gridRadios" id="kerabat" value="Kerabat" (change)="getInfo($event)"checked>
+                      <label class="form-check-label" for="kerabat">
+                        Kerabat
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Alergi Obat/Makanan</legend>
                 <div class="col-sm-10">
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="ya" (change)="radioChangeHandler($event)">

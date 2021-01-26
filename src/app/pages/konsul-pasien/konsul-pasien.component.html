@@ -48,7 +48,7 @@
               <div class="form-group row">
                 <label for="pekerjaan" class="col-sm-2 col-form-label">Biaya</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="biaya" required [(ngModel)]="riwayat.biaya" name="biaya">
+                  <input type="text" class="form-control" id="biaya" required [(ngModel)]="riwayat.biaya" name="biaya" placeholder="Rp ">
                 </div>
               </div>
               <!-- <div class="form-group row">
@@ -73,8 +73,8 @@
                   <legend class="col-form-label col-sm-2 pt-0">DPJP</legend>
                   <div class="col-sm-10">
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="drg.Kamil" (change)="radioChangeHandler($event)">
-                      <label class="form-check-label" for="gridRadios1">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="kamil" value="drg.Kamil" (change)="radioChangeHandler($event)">
+                      <label class="form-check-label" for="kamil">
                         drg.Muhammad Kamil Nur
                       </label>
                       <!-- <div *ngIf="cekAlergi=='ya' ">
@@ -82,8 +82,8 @@
                       </div> -->
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="drg.Ammar" (change)="radioChangeHandler($event)">
-                      <label class="form-check-label" for="gridRadios2">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="ammar" value="drg.Ammar" (change)="radioChangeHandler($event)">
+                      <label class="form-check-label" for="ammar">
                         drg.Ammar
                       </label>
                     </div>

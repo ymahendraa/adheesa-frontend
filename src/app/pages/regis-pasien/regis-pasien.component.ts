@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PasienService } from 'src/app/services/pasien/pasien.service';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-regis-pasien',
@@ -10,17 +11,22 @@ export class RegisPasienComponent implements OnInit {
 
   pasien = {
     nama:'',
+    jk:'',
     tempatLahir: '',
     tanggalLahir: '',
     alamat:'',
     noHp:'',
     pekerjaan:'',
     penyakit:'',
+    info:'',
     alergi:''
   }
   submited = false;
 
-  constructor(private pasienService : PasienService) { }
+  constructor(
+    private pasienService : PasienService,
+    private router : Router
+    ) { }
   header = 'Registrasi Pasien';
 
   ngOnInit(): void {
@@ -66,27 +72,41 @@ export class RegisPasienComponent implements OnInit {
 
   date ='';
   showDate = (d) => {
-    return this.date = d["day"].toString() +'-'+ d["month"].toString()  +'-'+ d["year"].toString();
-    // console.log(this.date)
+    this.date = d["year"].toString() +'-'+ d["month"].toString()  +'-'+ d["day"].toString();
+    console.log(this.date)
   }
   cekAlergi='';
   radioChangeHandler = (e:any) => {
     this.cekAlergi = e.target.value;
+    console.log(this.cekAlergi)
+    if (this.cekAlergi == 'tidak') {
+      this.pasien.alergi = '';
+    }
+  }
+
+  getJK = (e:any)=>{
+    this.pasien.jk = e.target.value;
   }
   
+  getInfo = (e:any)=>{
+    this.pasien.info = e.target.value;
+  }
   // alergiCek = (e:any) => {
   //   if
   // }
 
+  message = '';
   savePasien = () => {
     const data = {
       nama_pasien : this.pasien.nama,
+      jenis_kelamin: this.pasien.jk,
       tempat_lahir : this.pasien.tempatLahir,
       tanggal_lahir : this.date,
       alamat : this.pasien.alamat,
       no_hp : this.pasien.noHp,
       pekerjaan : this.pasien.pekerjaan,
       riwayat_penyakit_sistemik : this.penyakit + ',' + this.penyakitDll,
+      info_klinik:this.pasien.info,
       alergi_obat : this.pasien.alergi
     }
 
@@ -95,6 +115,9 @@ export class RegisPasienComponent implements OnInit {
         response => {
           console.log(response);
           this.submited=true;
+          this.message = `Registrasi pasien berhasil`;
+          alert(this.message);
+          this.router.navigate(['/pasien'])
         },
         error => {
           console.log(error);

@@ -1,19 +1,52 @@
 <div class="container-lg">
     <div *ngIf="currentPasien">
         <h1>{{header}}, {{currentPasien.nama_pasien}}</h1>
-        <p>{{currentPasien.pasien_id}}/120192</p>
-        <p>{{currentPasien.tanggal_lahir}}</p>
-        <p>{{currentPasien.tempat_lahir}}</p>
-        <p>{{currentPasien.no_hp}}</p>
-        <p>{{currentPasien.pekerjaan}}</p>
-        <p>{{currentPasien.alamat}}</p>
-        <p>{{currentPasien.alergi_obat}}</p>
+    
+        <div id="data">
+            <div class="row">
+                <h6 class="col-sm-3">ID Pasien </h6>
+                <p>{{currentPasien.pasien_id}}</p>
+            </div>
+            <div class="row">
+                <h6 class="col-sm-3">Jenis Kelamin </h6>
+                <p>{{currentPasien.jenis_kelamin}}</p>
+            </div>
+            <div class="row">
+                <h6 class="col-sm-3">TTL </h6>
+                <p>{{currentPasien.tempat_lahir}}, {{currentPasien.tanggal_lahir}}</p>
+            </div>
+            <div class="row">
+                <h6 class="col-sm-3">No.Hp </h6>
+                <p>{{currentPasien.no_hp}}</p>
+            </div>
+            <div class="row">
+                <h6 class="col-sm-3">Pekerjaan </h6>
+                <p>{{currentPasien.pekerjaan}}</p>  
+            </div>
+            <div class="row">
+                <h6 class="col-sm-3">Alamat </h6>
+                <p>{{currentPasien.alamat}}</p>
+            </div>
+            <div class="row">
+                <h6 class="col-sm-3">Penyakit Sistemik </h6>
+                <p>{{currentPasien.riwayat_penyakit_sistemik}}</p>
+            </div>
+            <div class="row">
+                <h6 class="col-sm-3">Alergi Obat/Makanan </h6>
+                <p>{{currentPasien.alergi_obat}}</p>
+            </div>
+            <div style="margin-bottom: 1%;margin-top: 1%; position: relative; margin-left: 85%;">
+                <button class="btn btn-warning btn-lg" routerLink="/pasien/update-data-pasien/{{currentPasien.pasien_id}}">Update Data</button>
+            </div>
+        </div>
+        
     </div>
 
     <div *ngIf="currentPasien">
         <div class="container">
             <div class="card">
                 <div class="card-header">
+                    <h3 class="card-title">Data konsultasi pasien</h3>
                     <!-- <div class="card-tools">
                         <div class="input-group input-group-sm" style="width: 200px;">
                             <input type="text"
@@ -50,7 +83,7 @@
                     <!-- <tr *ngFor="let konsul of konsuls;let i = index" [class.active]="i == currentIndex" (click)="setActivePasien(pasien, i)" [routerLink]="[ '/pasien', pasien.pasien_id ]"> -->
                     <tr *ngFor="let konsul of konsuls;let i = index" >
                         <th scope="row">{{ i + 1 }}</th>
-                        <td> {{konsul.pasien_id}}/010221 </td>
+                        <td> {{konsul.pasien_id}}</td>
                         <td> {{konsul.tanggal}} </td>
                         <td> {{konsul.unsur_regio}} </td>
                         <td> {{konsul.keluhan}} </td>
@@ -62,10 +95,15 @@
                     </tbody>
                     </table>
                 </div>
+                
         </div>
     </div>
     
+    <div class="container button">
+        <button class="btn btn-primary btn-lg" routerLink="/pasien/{{currentPasien.pasien_id}}/konsultasi">Tambah Pemeriksaan</button>
+        <button class="btn btn-success btn-lg" routerLink="/pasien/input-data-lab/{{currentPasien.pasien_id}}">Input Data Lab</button>
+    </div>
     
-<button class="btn btn-primary" routerLink="/pasien/{{currentPasien.pasien_id}}/konsultasi">tambah pemeriksaan</button>
+
 </div>
 

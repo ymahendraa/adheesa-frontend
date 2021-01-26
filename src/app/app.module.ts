@@ -16,6 +16,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { PasienComponent } from './details/pasien/pasien.component';
 import { DetailPasienComponent } from './pages/detail-pasien/detail-pasien.component';
 import { KonsulPasienComponent } from './pages/konsul-pasien/konsul-pasien.component';
+import { UpdatePasienComponent } from './pages/update-pasien/update-pasien.component';
+import { RegisLaboratoriumComponent } from './pages/regis-laboratorium/regis-laboratorium.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { KonsulPasienComponent } from './pages/konsul-pasien/konsul-pasien.compo
     HomeComponent,
     PasienComponent,
     DetailPasienComponent,
-    KonsulPasienComponent
+    KonsulPasienComponent,
+    UpdatePasienComponent,
+    RegisLaboratoriumComponent
   ],
   imports: [
     FontAwesomeModule,
@@ -64,6 +68,14 @@ import { KonsulPasienComponent } from './pages/konsul-pasien/konsul-pasien.compo
       {
         path: 'pasien/:pasien_id/konsultasi',
         component:KonsulPasienComponent
+      },
+      {
+        path: 'pasien/update-data-pasien/:pasien_id',
+        component:UpdatePasienComponent
+      },
+      {
+        path: 'pasien/input-data-lab/:pasien_id',
+        component:RegisLaboratoriumComponent,
       }
     ])
   ],

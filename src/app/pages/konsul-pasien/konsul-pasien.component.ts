@@ -28,7 +28,8 @@ export class KonsulPasienComponent implements OnInit {
   constructor(
     private pasienService : PasienService,
     private konsulService : KonsulPasienService,
-    private route : ActivatedRoute
+    private route : ActivatedRoute,
+    private router : Router
   ) { }
 
   ngOnInit(): void {
@@ -76,6 +77,7 @@ export class KonsulPasienComponent implements OnInit {
         response => {
           console.log(response);
           this.submitted = true;
+          this.router.navigate([`/pasien/${data.pasien_id}`])
         },
         error => {
           console.log(error);

@@ -9,10 +9,10 @@ import { KonsulPasienService } from 'src/app/services/pasien/konsul-pasien.servi
   styleUrls: ['./detail-pasien.component.css']
 })
 export class DetailPasienComponent implements OnInit {
-  header = 'Detail pasien'
   currentPasien = null;
   currentRiwayat = null;
   konsuls : any;
+  header = `Detail data`
   // message = '';
 
   constructor(
@@ -35,6 +35,9 @@ export class DetailPasienComponent implements OnInit {
         data => {
           this.currentPasien = data;
           console.log(data);
+          if (this.currentPasien.alergi_obat == ''){
+            this.currentPasien.alergi_obat = 'Tidak ada'
+          }
         },
         error => {
           console.log(error);
