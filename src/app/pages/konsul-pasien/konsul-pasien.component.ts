@@ -48,7 +48,7 @@ export class KonsulPasienComponent implements OnInit {
     this.riwayat.dpjp = e.target.value;
   }
 
-  getPasien(id){
+  getPasien = (id) => {
     this.pasienService.get(id)
       .subscribe(
         data => {
@@ -60,7 +60,7 @@ export class KonsulPasienComponent implements OnInit {
         });
   }
 
-  saveKonsul() {
+  saveKonsul = () => {
     const data = {
       pasien_id : this.currentPasien.pasien_id,
       tanggal : this.date,

@@ -29,7 +29,7 @@ export class DetailPasienComponent implements OnInit {
     this.retrieveKonsul(this.route.snapshot.paramMap.get('pasien_id'));
   }
 
-  getPasien(id){
+  getPasien = (id) => {
     this.pasienService.get(id)
       .subscribe(
         data => {

@@ -1,1 +1,86 @@
-<p>regis-laboratorium works!</p>
+<div class="container-lg">
+    <div *ngIf="currentPasien">
+    <h1>{{header}}, {{currentPasien.nama_pasien}} </h1>
+        <div class="form">
+            <form autocomplete="on">
+                <div class="form-group row">
+                  <label for="idPasien" class="col-sm-2 col-form-label">ID</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="idPasien" [(ngModel)]="currentPasien.pasien_id" name="id" disabled>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nama"  [(ngModel)]="currentPasien.nama_pasien" name="nama" disabled>
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label for="tanggal" class="col-sm-2 col-form-label">Tanggal</label>
+                    <div class="col-sm-10">
+                      <div class="input-group">
+                        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="dataLab.tanggal" ngbDatepicker #d="ngbDatepicker" (ngModelChange) = "showDate(dataLab.tanggal)" [minDate]="{year: 1945, month:1, day: 1}">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                        </div>
+                        <!-- <p>Adalah {{date}}</p> -->
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                  <label for="jPekerjaan" class="col-sm-2 col-form-label">Jenis Pekerjaan</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="jPekerjaan"  [(ngModel)]="dataLab.jenis_pekerjaan" name="jPekerjaan">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="jumlah" class="col-sm-2 col-form-label">Jumlah</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="jumlah"  [(ngModel)]="dataLab.jumlah" name="jumlah">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="lab" class="col-sm-2 col-form-label">Lab</label>
+                  <div class="col-sm-10">
+                    <input type="lab" class="form-control" id="pekerjaan"  [(ngModel)]="dataLab.lab" name="lab">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="biaya" class="col-sm-2 col-form-label">Biaya</label>
+                  <div class="col-sm-10">
+                    <input type="lab" class="form-control" id="biaya"  [(ngModel)]="dataLab.biaya" name="biaya">
+                  </div>
+                </div>
+                <fieldset class="form-group">
+                  <div class="row">
+                    <legend class="col-form-label col-sm-2 pt-0">DPJP</legend>
+                    <div class="col-sm-10">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="kamil" value="drg.Kamil" (change)="radioChangeHandler($event)">
+                        <label class="form-check-label" for="kamil">
+                          drg.Muhammad Kamil Nur
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="ammar" value="drg.Ammar" (change)="radioChangeHandler($event)">
+                        <label class="form-check-label" for="ammar">
+                          drg.Ammar
+                        </label>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </fieldset>
+                <div class="form-group row">
+                  <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary" (click)="saveDataLab()">Submit</button>
+                  </div>
+                </div>
+              </form>
+        </div>
+    </div>
+    
+      
+      
+  </div>
+  

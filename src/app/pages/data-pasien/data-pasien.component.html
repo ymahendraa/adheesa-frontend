@@ -10,8 +10,8 @@
                             class="form-control"
                             placeholder="Cari berdasarkan nama"
                             [(ngModel)]="nama"
-                            (keydown.enter)="searchNama()"
-                            (keyup)="searchNama()"
+                            (keydown.enter)="searchNama($event)"
+                            (keyup)="searchNama($event)"
                             />
                             <div class="input-group-append">
                                 <button type="button" class="btn btn-outline-secondary" (click)="searchNama()"><fa-icon [icon]="faSearch"></fa-icon></button>

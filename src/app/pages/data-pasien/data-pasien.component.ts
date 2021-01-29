@@ -47,13 +47,16 @@ export class DataPasienComponent implements OnInit {
   }
 
   result=0;
-  searchNama = () => {
+  searchNama = (e) => {
     this.pasienService.findByNama(this.nama)
     .subscribe(
       data => {
         this.pasiens = data;
         console.log(data);
-        this.result = data.length
+        this.result = data.length;
+        if (e.target.value == '') {
+          this.result = 0;
+        }
       },
       error => {
         console.log(error);

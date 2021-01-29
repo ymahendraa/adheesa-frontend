@@ -22,18 +22,16 @@ export class UpdatePasienComponent implements OnInit {
 
   }
 
-  getJK = (e:any)=>{
-    this.currentPasien.jk = e.target.value;
-  }
+  // getJK = (e:any)=>{
+  //   this.currentPasien.jk = e.target.value;
+  // }
   
-  date ='';
   showDate = (d) => {
-    this.date = d["year"].toString() +'-'+ d["month"].toString()  +'-'+ d["day"].toString();
-    console.log(this.date)
+    this.currentPasien.tanggal_lahir = d["year"].toString() +'-'+ d["month"].toString()  +'-'+ d["day"].toString();
+    console.log(this.currentPasien.tanggal_lahir)
   }
 
-
-  getPasien(id){
+  getPasien = (id) => {
     this.pasienService.get(id)
       .subscribe(
         data => {
@@ -45,7 +43,7 @@ export class UpdatePasienComponent implements OnInit {
         });
   }
 
-  updatePasien(){
+  updatePasien = () => {
     this.pasienService.update(this.currentPasien.pasien_id, this.currentPasien)
       .subscribe(
         response =>{
