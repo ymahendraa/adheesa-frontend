@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PasienService } from 'src/app/services/pasien/pasien.service';
 import { DataLabService } from 'src/app/services/data/data-lab.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DataLabComponent } from 'src/app/pages/laboratorium/data-lab/data-lab.component';
 // import { KonsulPasienComponent } from '../konsul-pasien/konsul-pasien.component';
 
 @Component({
@@ -24,11 +25,14 @@ export class RegisLaboratoriumComponent implements OnInit {
     biaya: '',
     dpjp: ''
   };
+
+  // dLab = require('src/app/pages/laboratorium/data-lab/data-lab.component');
   constructor(
     private pasienService : PasienService,
     private dataLabService : DataLabService,
     private route : ActivatedRoute,
     private router : Router,
+    // private dLab : DataLabComponent
     // private konsul : KonsulPasienComponent
   ) { }
 
@@ -77,7 +81,8 @@ export class RegisLaboratoriumComponent implements OnInit {
           this.submitted = true;
           this.message = `Data lab pasien ${this.currentPasien.nama_pasien} berhasil ditambahkan`;
           alert(this.message);
-          // this.router.navigate([`/laporan-lab/`])
+          this.router.navigate([`/data-lab/`])
+          // this.dLab.get();
         },
         error => {
           console.log(error);

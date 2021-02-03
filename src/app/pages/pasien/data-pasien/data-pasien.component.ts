@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { PasienService } from 'src/app/services/pasien/pasien.service';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 

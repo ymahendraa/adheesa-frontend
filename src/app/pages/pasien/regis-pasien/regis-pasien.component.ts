@@ -68,7 +68,7 @@ export class RegisPasienComponent implements OnInit {
     }
     // console.log(this.selectedItems.toString());
     this.penyakit = this.selectedItems.toString();
-    }
+  }
 
   date ='';
   showDate = (d) => {
@@ -108,6 +108,14 @@ export class RegisPasienComponent implements OnInit {
       riwayat_penyakit_sistemik : this.penyakit + ',' + this.penyakitDll,
       info_klinik:this.pasien.info,
       alergi_obat : this.pasien.alergi
+    }
+
+    if ((data.riwayat_penyakit_sistemik == ',') || (data.riwayat_penyakit_sistemik == 'undefined,')){
+      data.riwayat_penyakit_sistemik = null;
+    }
+
+    if ((data.alergi_obat == '')){
+      data.alergi_obat = null;
     }
 
     this.pasienService.create(data)

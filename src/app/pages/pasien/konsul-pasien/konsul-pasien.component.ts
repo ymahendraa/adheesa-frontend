@@ -15,7 +15,10 @@ export class KonsulPasienComponent implements OnInit {
     tanggal : '',
     unsur_regio : '',
     keluhan : '',
+    tekanan_darah:'',
+    obat:'',
     perawatan : '',
+    keterangan:'',
     rencana_perawatan : '',
     biaya : '',
     dpjp : ''
@@ -66,7 +69,10 @@ export class KonsulPasienComponent implements OnInit {
       tanggal : this.date,
       unsur_regio : this.riwayat.unsur_regio,
       keluhan : this.riwayat.keluhan,
+      tekanan_darah: this.riwayat.tekanan_darah,
+      obat:this.riwayat.obat,
       perawatan : this.riwayat.perawatan,
+      keterangan: this.riwayat.keterangan,
       rencana_perawatan : this.riwayat.rencana_perawatan,
       biaya : this.riwayat.biaya,
       dpjp : this.riwayat.dpjp
@@ -77,6 +83,8 @@ export class KonsulPasienComponent implements OnInit {
         response => {
           console.log(response);
           this.submitted = true;
+          this.message = `Data konsultasi ${this.currentPasien.nama_pasien} berhasil diinputkan`;
+          alert(this.message);
           this.router.navigate([`/pasien/${data.pasien_id}`])
         },
         error => {

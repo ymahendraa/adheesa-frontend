@@ -14,7 +14,7 @@
                             (keyup)="searchNama($event)"
                             />
                             <div class="input-group-append">
-                                <button type="button" class="btn btn-outline-secondary" (click)="searchNama()"><fa-icon [icon]="faSearch"></fa-icon></button>
+                                <button type="button" class="btn btn-outline-secondary" (click)="searchNama($event)"><fa-icon [icon]="faSearch"></fa-icon></button>
                             </div>
                         </div>
                     </div>
@@ -27,16 +27,28 @@
                         <tr>
                         <th scope="col">No.</th>
                         <th scope="col">ID</th>
+                        <th scope="col">Tanggal</th>
                         <th scope="col">Nama</th>
-                        <th scope="col">Alamat</th>
+                        <th scope="col">Jenis Pekerjaan</th>
+                        <th scope="col">Jumlah</th>
+                        <th scope="col">Lab</th>
+                        <th scope="col">Biaya</th>
+                        <th scope="col">DPJP</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <tr *ngFor="let pasien of pasiens;let i = index" [class.active]="i == currentIndex" (click)="setActivePasien(pasien, i)" [routerLink]="[ '/pasien', pasien.pasien_id ]">
+                    <tr *ngFor="let dataLab of dataLabs;let i = index" [class.active]="i == currentIndex" (click)="setActiveLab(dataLab, i)">
+                    <!-- <tr *ngFor="let dataLab of dataLabs;let i = index" [class.active]="i == currentIndex" (click)="setActiveLab(dataLab, i)" [routerLink]="[ '/pasien', pasien.pasien_id ]"> -->
+
                         <th scope="row">{{ i + 1 }}</th>
-                        <td> {{pasien.pasien_id}}/010221 </td>
-                        <td> {{pasien.nama_pasien}} </td>
-                        <td> {{pasien.alamat}}</td>
+                        <td> {{dataLab.pasien_id}}</td>
+                        <td> {{dataLab.tanggal}} </td>
+                        <td> {{dataLab.Pasien.nama_pasien}} </td>
+                        <td> {{dataLab.jenis_pekerjaan}}</td>
+                        <td> {{dataLab.jumlah}}</td>
+                        <td> {{dataLab.lab}}</td>
+                        <td> {{dataLab.biaya}}</td>
+                        <td> {{dataLab.dpjp}}</td>
                         </tr>
                     </tbody>
                     </table>

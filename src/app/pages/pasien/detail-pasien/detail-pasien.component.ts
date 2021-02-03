@@ -29,20 +29,25 @@ export class DetailPasienComponent implements OnInit {
     this.retrieveKonsul(this.route.snapshot.paramMap.get('pasien_id'));
   }
 
+  newId:any;
   getPasien = (id) => {
     this.pasienService.get(id)
       .subscribe(
         data => {
           this.currentPasien = data;
           console.log(data);
-          if (this.currentPasien.alergi_obat == ''){
+          if (this.currentPasien.alergi_obat == null){
             this.currentPasien.alergi_obat = 'Tidak ada'
+          }
+          if (this.currentPasien.riwayat_penyakit_sistemik == null) {
+            this.currentPasien.riwayat_penyakit_sistemik = 'Tidak ada';
           }
         },
         error => {
           console.log(error);
         });
   }
+
 
   // getRiwayat(id){
   //   this.konsulService.get(id)
@@ -59,6 +64,7 @@ export class DetailPasienComponent implements OnInit {
         data => {
           this.konsuls = data;
           console.log(data);
+          // this.newId = Object.values(this.konsuls.tanggal)[0];
         },
         error => {
           console.log(error);

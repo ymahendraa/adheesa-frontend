@@ -1,7 +1,7 @@
 <div class="container-lg">
     <h1>{{header}}</h1>
       <div class="form">
-          <form autocomplete="off">
+          <form autocomplete="on">
               <!-- <div class="form-group row">
                 <label for="namaPasien" class="col-sm-2 col-form-label">Nama Pasien</label>
                 <div class="col-sm-10">
@@ -21,22 +21,40 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="tempatLahir" class="col-sm-2 col-form-label">Unsur Regio</label>
+                <label for="tempatLahir" class="col-sm-2 col-form-label">Unsur/Regio</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="unsurRegio" required [(ngModel)]="riwayat.unsur_regio" name="unsurRegio">
                 </div>
               </div>
               
               <div class="form-group row">
-                <label for="alamat" class="col-sm-2 col-form-label">Keluhan</label>
+                <label for="keluhan" class="col-sm-2 col-form-label">Keluhan/Diagnosa</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="keluhan" required [(ngModel)]="riwayat.keluhan" name="keluhan">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="tekanan_darah" class="col-sm-2 col-form-label">Tekanan Darah</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="tekanan_darah" required [(ngModel)]="riwayat.tekanan_darah" name="tekanan_darah">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="obat" class="col-sm-2 col-form-label">Obat yang sedang dikonsumsi</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="obat" required [(ngModel)]="riwayat.obat" name="obat">
                 </div>
               </div>
               <div class="form-group row">
                 <label for="noTelp" class="col-sm-2 col-form-label">Perawatan</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="perawatan" required [(ngModel)]="riwayat.perawatan" name="perawatan">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="ket" class="col-sm-2 col-form-label">Keterangan</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="ket" required [(ngModel)]="riwayat.keterangan" name="ket">
                 </div>
               </div>
               <div class="form-group row">
@@ -73,7 +91,7 @@
                   <legend class="col-form-label col-sm-2 pt-0">DPJP</legend>
                   <div class="col-sm-10">
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="kamil" value="drg.Kamil" (change)="radioChangeHandler($event)">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="kamil" value="drg.Muhammad Kamil Nur" (change)="radioChangeHandler($event)">
                       <label class="form-check-label" for="kamil">
                         drg.Muhammad Kamil Nur
                       </label>
@@ -82,9 +100,15 @@
                       </div> -->
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gridRadios" id="ammar" value="drg.Ammar" (change)="radioChangeHandler($event)">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="ammar" value="drg.Ammar Abdullah" (change)="radioChangeHandler($event)">
                       <label class="form-check-label" for="ammar">
-                        drg.Ammar
+                        drg.Ammar Abdullah
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="resya" value="drg.Resya Permatasari" (change)="radioChangeHandler($event)">
+                      <label class="form-check-label" for="resya">
+                        drg.Resya Permatasari
                       </label>
                     </div>
                     

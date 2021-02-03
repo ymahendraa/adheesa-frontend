@@ -1,0 +1,47 @@
+<div class="container-lg">
+    <h1>{{header}}</h1>
+
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 200px;">
+                            <input type="text"
+                            class="form-control"
+                            placeholder="Cari berdasarkan nama"
+                            [(ngModel)]="nama"
+                            (keydown.enter)="searchNama($event)"
+                            (keyup)="searchNama($event)"
+                            />
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-outline-secondary" (click)="searchNama($event)"><fa-icon [icon]="faSearch"></fa-icon></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+            
+                <div class="card-body table-responsive p-0 " style="height: 430px;">
+                    <table class="table table-head-fixed table-hover">
+                    <thead>
+                        <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Alamat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let pasien of pasiens;let i = index" [class.active]="i == currentIndex" (click)="setActivePasien(pasien, i)" [routerLink]="[ '/pasien', pasien.pasien_id ]">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td> {{pasien.pasien_id}}</td>
+                        <td> {{pasien.nama_pasien}} </td>
+                        <td> {{pasien.alamat}}</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+        </div>
+        <h5>Hasil Pencarian : {{result}} pasien</h5>
+
+</div>

@@ -9,15 +9,16 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
-import { RegisPasienComponent } from './pages/regis-pasien/regis-pasien.component';
-import { DataPasienComponent } from './pages/data-pasien/data-pasien.component';
+import { RegisPasienComponent } from './pages/pasien/regis-pasien/regis-pasien.component';
+import { DataPasienComponent } from './pages/pasien/data-pasien/data-pasien.component';
 import { KunjunganHarianComponent } from './pages/kunjungan-harian/kunjungan-harian.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PasienComponent } from './details/pasien/pasien.component';
-import { DetailPasienComponent } from './pages/detail-pasien/detail-pasien.component';
-import { KonsulPasienComponent } from './pages/konsul-pasien/konsul-pasien.component';
-import { UpdatePasienComponent } from './pages/update-pasien/update-pasien.component';
-import { RegisLaboratoriumComponent } from './pages/regis-laboratorium/regis-laboratorium.component';
+import { DetailPasienComponent } from './pages/pasien/detail-pasien/detail-pasien.component';
+import { KonsulPasienComponent } from './pages/pasien/konsul-pasien/konsul-pasien.component';
+import { UpdatePasienComponent } from './pages/pasien/update-pasien/update-pasien.component';
+import { RegisLaboratoriumComponent } from './pages/laboratorium/regis-laboratorium/regis-laboratorium.component';
+import { DataLabComponent } from './pages/laboratorium/data-lab/data-lab.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RegisLaboratoriumComponent } from './pages/regis-laboratorium/regis-lab
     DetailPasienComponent,
     KonsulPasienComponent,
     UpdatePasienComponent,
-    RegisLaboratoriumComponent
+    RegisLaboratoriumComponent,
+    DataLabComponent
   ],
   imports: [
     FontAwesomeModule,
@@ -76,6 +78,10 @@ import { RegisLaboratoriumComponent } from './pages/regis-laboratorium/regis-lab
       {
         path: 'pasien/input-data-lab/:pasien_id',
         component:RegisLaboratoriumComponent,
+      },
+      {
+        path: 'data-lab',
+        component:DataLabComponent
       }
     ])
   ],
