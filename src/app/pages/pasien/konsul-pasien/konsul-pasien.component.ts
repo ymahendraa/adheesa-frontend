@@ -42,7 +42,7 @@ export class KonsulPasienComponent implements OnInit {
 
   date ='';
   showDate = (d) => {
-    return this.date = d["day"].toString() +'-'+ d["month"].toString()  +'-'+ d["year"].toString();
+    return this.date = d["year"].toString() +'-'+ d["month"].toString()  +'-'+ d["day"].toString();
     // console.log(this.date)
   }
 

@@ -49,15 +49,6 @@ export class DetailPasienComponent implements OnInit {
   }
 
 
-  // getRiwayat(id){
-  //   this.konsulService.get(id)
-  //     .subscribe(
-  //       data => {
-  //         this.get
-  //       }
-  //     )
-  // }
-
   retrieveKonsul = (id) => {
     this.konsulService.get(id)
       .subscribe(

@@ -19,6 +19,8 @@ import { KonsulPasienComponent } from './pages/pasien/konsul-pasien/konsul-pasie
 import { UpdatePasienComponent } from './pages/pasien/update-pasien/update-pasien.component';
 import { RegisLaboratoriumComponent } from './pages/laboratorium/regis-laboratorium/regis-laboratorium.component';
 import { DataLabComponent } from './pages/laboratorium/data-lab/data-lab.component';
+import { LaporanHarianComponent } from './pages/laporan/laporan-harian/laporan-harian.component';
+import { LaporanBulananComponent } from './pages/laporan/laporan-bulanan/laporan-bulanan.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { DataLabComponent } from './pages/laboratorium/data-lab/data-lab.compone
     KonsulPasienComponent,
     UpdatePasienComponent,
     RegisLaboratoriumComponent,
-    DataLabComponent
+    DataLabComponent,
+    LaporanHarianComponent,
+    LaporanBulananComponent
   ],
   imports: [
     FontAwesomeModule,
@@ -82,6 +86,14 @@ import { DataLabComponent } from './pages/laboratorium/data-lab/data-lab.compone
       {
         path: 'data-lab',
         component:DataLabComponent
+      },
+      {
+        path:'laporan/harian',
+        component:LaporanHarianComponent
+      },
+      {
+        path:'laporan/bulanan',
+        component:LaporanBulananComponent
       }
     ])
   ],

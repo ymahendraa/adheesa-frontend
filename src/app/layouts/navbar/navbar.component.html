@@ -20,8 +20,8 @@
           <li ngbDropdown class="nav-item">
             <a href (click)="false" class="nav-link" ngbDropdownToggle>Laporan</a>
             <div ngbDropdownMenu>
-              <button ngbDropdownItem>Harian</button>
-              <button ngbDropdownItem>Bulanan</button>
+              <a ngbDropdownItem routerLink="laporan/harian">Harian</a>
+              <a ngbDropdownItem routerLink="laporan/bulanan">Bulanan</a>
               <div class="dropdown-divider"></div>
               <a ngbDropdownItem routerLink="data-lab">Laboratorium</a>
             </div>

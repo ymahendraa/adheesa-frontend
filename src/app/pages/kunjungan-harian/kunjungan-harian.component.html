@@ -1,1 +1,46 @@
-<p>kunjungan-harian works!</p>
+<div class="container-md">
+    <h1>{{header}}</h1>
+
+    <div class="container col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Tanggal : {{tanggal}}</h3>
+                <div class="card-tools">
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <input class="form-control" placeholder={{tanggal}} name="dp" [(ngModel)]="tanggal" ngbDatepicker #d="ngbDatepicker" (ngModelChange) = "showDate(tanggal);searchTanggal($event)" [minDate]="{year: 1945, month:1, day: 1}">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="card-body table-responsive p-0" style="height: 430px;" >
+                <table class="table table-head-fixed">
+                    <thead>
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nama Pasien</th>
+                            <th scope="col">Perawatan</th>
+                            <th scope="col">Biaya</th>
+                            <th scope="col">DPJP</th>
+                            </tr> 
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let kunjungan of kunjungans;let i = index" >
+                            <th scope="row">{{ i + 1 }}</th>
+                            <td> {{kunjungan.riwayat_id}}</td>
+                            <td> {{kunjungan.Pasien.nama_pasien}} </td>
+                            <td> {{kunjungan.perawatan}} </td>
+                            <td> {{kunjungan.biaya}} </td>
+                            <td> {{kunjungan.dpjp}} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

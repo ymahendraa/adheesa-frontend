@@ -19,6 +19,7 @@ export class DataPasienComponent implements OnInit {
 
   ngOnInit(): void {
     this.retrievePasien();
+    this.refreshList()
   }
   
   retrievePasien = () => {
