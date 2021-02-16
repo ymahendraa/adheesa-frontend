@@ -63,9 +63,9 @@ export class KunjunganHarianComponent implements OnInit {
         this.kunjungans = data;
         console.log(data);
         this.result = data.length;
-        // if (e.target.value == '') {
-        //   this.result = 0;
-        // }
+        if (e.target.value == '') {
+          this.result = 0;
+        }
       },
       error => {
         console.log(error);

@@ -13,3 +13,4 @@ h1 {
 h5{
     margin-top: 3%;
 }
+.table-head-fixed thead th { position: sticky; top: 0; background-color: white; }

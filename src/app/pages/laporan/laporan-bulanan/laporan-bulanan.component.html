@@ -1,45 +1,281 @@
 <div class="container-md">
     <h1>{{header}}</h1>
 
-    <div class="container col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Bulan Tahun</h3>
-                <!-- <div class="card-tools">
-                    <div class="col-sm-10">
-                        <div class="input-group">
-                            <input class="form-control" placeholder={{tanggal}} name="dp" [(ngModel)]="tanggal" ngbDatepicker #d="ngbDatepicker" (ngModelChange) = "showDate(tanggal);searchTanggal($event)" [minDate]="{year: 1945, month:1, day: 1}">
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+            <div class="container col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Tanggal : {{tanggal}}</h4>
+                        <div class="card-tools">
+                            <div class="col-sm-10">
+                                <div class="form-group">
+                                    <label style="margin-right: 2%;">Pilih tahun</label>
+                                    <select [(ngModel)]="selectedTahun" (change)="selected();searchTanggal()" style="width: 58px;">
+                                        <option *ngFor="let item of data" [ngValue]="item.tahun">{{item.tahun}}</option>
+                                    </select>
+                                <!-- {{selectedTahun | json}} -->
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                </div> -->
+                </div>
+            
             </div>
-            <div class="card-body table-responsive p-0" style="height: 430px;" >
-                <table class="table table-head-fixed">
-                    <thead>
-                        <tr>
-                            <th scope="col">Bulan</th>
-                            <th scope="col">Tahun</th>
-                            <th scope="col">Jumlah Pasien</th>
-                            <th scope="col">Jumlah Biaya Perawatan</th>
-                            <th scope="col">DPJP</th>
+</div>
+
+<div class="container">
+    <div class="container col-md-12">
+            <div class="card card-dr">
+                <div class="card-header">
+                    <h4 class="dr">drg.Muhammad Kamil Nur</h4>
+                </div>
+                <div class="card-body table-responsive p-0" style="height: 430px;" >
+                    <table class="table table-head-fixed">
+                        <thead>
+                            <tr>
+                                <th scope="col">Bulan</th>
+                                <th scope="col">Jumlah Pasien</th>
+                                <th scope="col">Total Biaya Perawatan</th>
                             </tr> 
-                    </thead>
-                    <!-- <tbody>
-                        <tr *ngFor="let kunjungan of kunjungans;let i = index" >
-                            <th scope="row">{{ i + 1 }}</th>
-                            <td> {{kunjungan.riwayat_id}}</td>
-                            <td> {{kunjungan.Pasien.nama_pasien}} </td>
-                            <td> {{kunjungan.perawatan}} </td>
-                            <td> {{kunjungan.biaya}} </td>
-                            <td> {{kunjungan.dpjp}} </td>
-                        </tr>
-                    </tbody> -->
-                </table>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> Januari </td>
+                                <td> {{kunjunganKamilJan.jumlah}} </td>
+                                <td> {{kunjunganKamilJan.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> Februari </td>
+                                <td> {{kunjunganKamilFeb.jumlah}} </td>
+                                <td> {{kunjunganKamilFeb.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> Maret </td>
+                                <td> {{kunjunganKamilMar.jumlah}} </td>
+                                <td> {{kunjunganKamilMar.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> April </td>
+                                <td> {{kunjunganKamilApr.jumlah}} </td>
+                                <td> {{kunjunganKamilApr.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> Mei </td>
+                                <td> {{kunjunganKamilMei.jumlah}} </td>
+                                <td> {{kunjunganKamilMei.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> Juni </td>
+                                <td> {{kunjunganKamilJun.jumlah}} </td>
+                                <td> {{kunjunganKamilJun.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> Juli </td>
+                                <td> {{kunjunganKamilJul.jumlah}} </td>
+                                <td> {{kunjunganKamilJul.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> Agustus </td>
+                                <td> {{kunjunganKamilAug.jumlah}} </td>
+                                <td> {{kunjunganKamilAug.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> September </td>
+                                <td> {{kunjunganKamilSep.jumlah}} </td>
+                                <td> {{kunjunganKamilSep.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> Oktober </td>
+                                <td> {{kunjunganKamilOkt.jumlah}} </td>
+                                <td> {{kunjunganKamilOkt.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> November </td>
+                                <td> {{kunjunganKamilNov.jumlah}} </td>
+                                <td> {{kunjunganKamilNov.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> Desember </td>
+                                <td> {{kunjunganKamilDes.jumlah}} </td>
+                                <td> {{kunjunganKamilDes.total}} </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <!-- <h6 class="card-text">Total Pendapatan: Rp {{totalPKamil}}</h6> -->
+                    <!-- <h6 class="card-text">Jumlah Kunjungan: {{totalKKamil}}</h6> -->
+                </div>
             </div>
         </div>
-    </div>
+
+        <div class="container col-md-12">
+                <div class="card card-dr">
+                    <div class="card-header">
+                        <h4 class="dr">drg.Ammar Abdullah</h4>
+                    </div>
+                    <div class="card-body table-responsive p-0" style="height: 430px;" >
+                        <table class="table table-head-fixed">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Bulan</th>
+                                    <th scope="col">Jumlah Pasien</th>
+                                    <th scope="col">Total Biaya Perawatan</th>
+                                </tr> 
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> Januari </td>
+                                    <td> {{kunjunganAmmarJan.jumlah}} </td>
+                                    <td> {{kunjunganAmmarJan.total}} </td>
+                                </tr>
+                                <tr>
+                                    <td> Februari </td>
+                                    <td> {{kunjunganAmmarFeb.jumlah}} </td>
+                                    <td> {{kunjunganAmmarFeb.total}} </td>
+                                </tr>
+                                <tr>
+                                    <td> Maret </td>
+                                    <td> {{kunjunganAmmarMar.jumlah}} </td>
+                                    <td> {{kunjunganAmmarMar.total}} </td>
+                                </tr>
+                                <tr>
+                                    <td> April </td>
+                                    <td> {{kunjunganAmmarApr.jumlah}} </td>
+                                    <td> {{kunjunganAmmarApr.total}} </td>
+                                </tr>
+                                <tr>
+                                    <td> Mei </td>
+                                    <td> {{kunjunganAmmarMei.jumlah}} </td>
+                                    <td> {{kunjunganAmmarMei.total}} </td>
+                                </tr>
+                                <tr>
+                                    <td> Juni </td>
+                                    <td> {{kunjunganAmmarJun.jumlah}} </td>
+                                    <td> {{kunjunganAmmarJun.total}} </td>
+                                </tr>
+                                <tr>
+                                    <td> Juli </td>
+                                    <td> {{kunjunganAmmarJul.jumlah}} </td>
+                                    <td> {{kunjunganAmmarJul.total}} </td>
+                                </tr>
+                                <tr>
+                                    <td> Agustus </td>
+                                    <td> {{kunjunganAmmarAug.jumlah}} </td>
+                                    <td> {{kunjunganAmmarAug.total}} </td>
+                                </tr>
+                                <tr>
+                                    <td> September </td>
+                                    <td> {{kunjunganAmmarSep.jumlah}} </td>
+                                    <td> {{kunjunganAmmarSep.total}} </td>
+                                </tr>
+                                <tr>
+                                    <td> Oktober </td>
+                                    <td> {{kunjunganAmmarOkt.jumlah}} </td>
+                                    <td> {{kunjunganAmmarOkt.total}} </td>
+                                </tr>
+                                <tr>
+                                    <td> November </td>
+                                    <td> {{kunjunganAmmarNov.jumlah}} </td>
+                                    <td> {{kunjunganAmmarNov.total}} </td>
+                                </tr>
+                                <tr>
+                                    <td> Desember </td>
+                                    <td> {{kunjunganAmmarDes.jumlah}} </td>
+                                    <td> {{kunjunganAmmarDes.total}} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <!-- <h6 class="card-text">Total Pendapatan: Rp {{totalPAmmar}}</h6> -->
+                        <!-- <h6 class="card-text">Jumlah Kunjungan: {{totalKAmmar}}</h6> -->
+                    </div>
+                </div>
+        </div>
+
+        <div class="container col-md-12">
+            <div class="card card-dr">
+                <div class="card-header">
+                    <h4 class="dr">drg.Resya Permatasari</h4>
+                </div>
+                <div class="card-body table-responsive p-0" style="height: 430px;" >
+                    <table class="table table-head-fixed">
+                        <thead>
+                            <tr>
+                                <th scope="col">Bulan</th>
+                                <th scope="col">Jumlah Pasien</th>
+                                <th scope="col">Total Biaya Perawatan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> Januari </td>
+                                <td> {{kunjunganResyaJan.jumlah}} </td>
+                                <td> {{kunjunganResyaJan.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> Februari </td>
+                                <td> {{kunjunganResyaFeb.jumlah}} </td>
+                                <td> {{kunjunganResyaFeb.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> Maret </td>
+                                <td> {{kunjunganResyaMar.jumlah}} </td>
+                                <td> {{kunjunganResyaMar.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> April </td>
+                                <td> {{kunjunganResyaApr.jumlah}} </td>
+                                <td> {{kunjunganResyaApr.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> Mei </td>
+                                <td> {{kunjunganResyaMei.jumlah}} </td>
+                                <td> {{kunjunganResyaMei.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> Juni </td>
+                                <td> {{kunjunganResyaJun.jumlah}} </td>
+                                <td> {{kunjunganResyaJun.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> Juli </td>
+                                <td> {{kunjunganResyaJul.jumlah}} </td>
+                                <td> {{kunjunganResyaJul.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> Agustus </td>
+                                <td> {{kunjunganResyaAug.jumlah}} </td>
+                                <td> {{kunjunganResyaAug.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> September </td>
+                                <td> {{kunjunganResyaSep.jumlah}} </td>
+                                <td> {{kunjunganResyaSep.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> Oktober </td>
+                                <td> {{kunjunganResyaOkt.jumlah}} </td>
+                                <td> {{kunjunganResyaOkt.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> November </td>
+                                <td> {{kunjunganResyaNov.jumlah}} </td>
+                                <td> {{kunjunganResyaNov.total}} </td>
+                            </tr>
+                            <tr>
+                                <td> Desember </td>
+                                <td> {{kunjunganResyaDes.jumlah}} </td>
+                                <td> {{kunjunganResyaDes.total}} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <!-- <h6 class="card-text">Total Pendapatan: Rp {{totalPResya}}</h6> -->
+                    <!-- <h6 class="card-text">Jumlah Kunjungan: {{totalKResya}}</h6> -->
+                </div>
+            </div>
+        </div>
 </div>

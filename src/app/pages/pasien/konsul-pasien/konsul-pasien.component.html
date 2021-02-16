@@ -9,7 +9,7 @@
                 </div>
               </div> -->
               <div class="form-group row">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">Tanggal Pemeriksaan</label>
+                <label for="inputPassword3" class="col-sm-2 col-form-label"><span class="wajib">* </span>Tanggal Pemeriksaan</label>
                 <div class="col-sm-10">
                   <div class="input-group">
                     <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="riwayat.tanggal" ngbDatepicker #d="ngbDatepicker" (ngModelChange) = "showDate(riwayat.tanggal)">
@@ -21,14 +21,14 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="tempatLahir" class="col-sm-2 col-form-label">Unsur/Regio</label>
+                <label for="tempatLahir" class="col-sm-2 col-form-label"><span class="wajib">* </span>Unsur/Regio</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="unsurRegio" required [(ngModel)]="riwayat.unsur_regio" name="unsurRegio">
                 </div>
               </div>
               
               <div class="form-group row">
-                <label for="keluhan" class="col-sm-2 col-form-label">Keluhan/Diagnosa</label>
+                <label for="keluhan" class="col-sm-2 col-form-label"><span class="wajib">* </span>Keluhan/Diagnosa</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="keluhan" required [(ngModel)]="riwayat.keluhan" name="keluhan">
                 </div>
@@ -46,7 +46,7 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="noTelp" class="col-sm-2 col-form-label">Perawatan</label>
+                <label for="noTelp" class="col-sm-2 col-form-label"><span class="wajib">* </span>Perawatan</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="perawatan" required [(ngModel)]="riwayat.perawatan" name="perawatan">
                 </div>
@@ -58,13 +58,13 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="pekerjaan" class="col-sm-2 col-form-label">Rencana Perawatan</label>
+                <label for="pekerjaan" class="col-sm-2 col-form-label"><span class="wajib">* </span>Rencana Perawatan Selanjutnya</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="rencana" required [(ngModel)]="riwayat.rencana_perawatan" name="rencana">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="pekerjaan" class="col-sm-2 col-form-label">Biaya</label>
+                <label for="pekerjaan" class="col-sm-2 col-form-label"><span class="wajib">* </span>Biaya</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="biaya" required [(ngModel)]="riwayat.biaya" name="biaya" placeholder="Rp ">
                 </div>
@@ -88,7 +88,7 @@
               </div> -->
               <fieldset class="form-group">
                 <div class="row">
-                  <legend class="col-form-label col-sm-2 pt-0">DPJP</legend>
+                  <legend class="col-form-label col-sm-2 pt-0"><span class="wajib">* </span>DPJP</legend>
                   <div class="col-sm-10">
                     <div class="form-check">
                       <input class="form-check-input" type="radio" name="gridRadios" id="kamil" value="drg.Muhammad Kamil Nur" (change)="radioChangeHandler($event)">

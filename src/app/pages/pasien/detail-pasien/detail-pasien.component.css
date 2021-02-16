@@ -23,3 +23,5 @@ button{
 #ket{
     max-width: 280px;
 }
+
+.table-head-fixed thead th { position: sticky; top: 0; background-color: white; }
