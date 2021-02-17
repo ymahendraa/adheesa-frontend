@@ -81,6 +81,7 @@
                         <th scope="col">Rencana Perawatan</th>
                         <th scope="col">Biaya</th>
                         <th scope="col">DPJP</th>
+                        <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -96,6 +97,7 @@
                         <td> {{konsul.rencana_perawatan}}</td>
                         <td> {{konsul.biaya}} </td>
                         <td> {{konsul.dpjp}} </td>
+                        <td><button class="btn btn-sm btn-warning" (click)="open(content);setActiveRiwayat(konsul, i)">Update</button></td>
                     </tr>
                     </tbody>
                     </table>
@@ -103,12 +105,112 @@
                 
         </div>
     </div>
-    
+
     <div class="container-fluid button col-md-4">
         <button class="btn btn-primary btn-lg" routerLink="/pasien/{{currentPasien.pasien_id}}/konsultasi">Tambah Pemeriksaan</button>
         <button class="btn btn-success btn-lg" routerLink="/pasien/input-data-lab/{{currentPasien.pasien_id}}">Input Data Lab</button>
     </div>
     
+    <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Update Riwayat Kunjungan</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form style="margin-right: -8%;">
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-4 col-form-label">Tanggal Pemeriksaan</label>
+                <div class="col-sm-7">
+                  <div class="input-group">
+                    <input class="form-control" placeholder="{{currentRiwayat.tanggal}}" name="dp" [(ngModel)]="currentRiwayat.tanggal" ngbDatepicker #d="ngbDatepicker" (ngModelChange) = "showDate(currentRiwayat.tanggal)">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                    </div>
+                    <!-- <p>Adalah {{date}}</p> -->
+                  </div>
+                </div>
+              </div>
+            <div class="form-group row">
+                <label for="unsur" class="col-sm-4 col-form-label">Unsur/Regio</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" id="unsur" [(ngModel)]="currentRiwayat.unsur_regio" required name="unsur">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="keluhan" class="col-sm-4 col-form-label">Keluhan/Diagnosa</label>
+                <div class="col-sm-7">
+                  <input type="text" class="form-control" id="keluhan" required [(ngModel)]="currentRiwayat.keluhan" name="keluhan">
+                </div>
+              </div>
+            <div class="form-group row">
+                <label for="tekanan_darah" class="col-sm-4 col-form-label">Tekanan Darah</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="tekanan_darah" required [(ngModel)]="currentRiwayat.tekanan_darah" name="tekanan_darah">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="obat" class="col-sm-4 col-form-label">Obat yang sedang dikonsumsi</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="obat" required [(ngModel)]="currentRiwayat.obat" name="obat">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="noTelp" class="col-sm-4 col-form-label">Perawatan</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="perawatan" required [(ngModel)]="currentRiwayat.perawatan" name="perawatan">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="kett" class="col-sm-4 col-form-label">Keterangan</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="kett" required [(ngModel)]="currentRiwayat.keterangan" name="ket">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="pekerjaan" class="col-sm-4 col-form-label">Rencana Perawatan Selanjutnya</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="rencana" required [(ngModel)]="currentRiwayat.rencana_perawatan" name="rencana">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="pekerjaan" class="col-sm-4 col-form-label">Biaya</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="biaya" required [(ngModel)]="currentRiwayat.biaya" name="biaya" placeholder="Rp ">
+                </div>
+            </div>
+            <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-label col-sm-4 pt-0">DPJP</legend>
+                <div class="col-sm-7">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="kamil" value="drg.Muhammad Kamil Nur" (change)="radioChangeHandler($event)">
+                        <label class="form-check-label" for="kamil">
+                        drg.Muhammad Kamil Nur
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="ammar" value="drg.Ammar Abdullah" (change)="radioChangeHandler($event)">
+                        <label class="form-check-label" for="ammar">
+                        drg.Ammar Abdullah
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="resya" value="drg.Resya Permatasari" (change)="radioChangeHandler($event)">
+                        <label class="form-check-label" for="resya">
+                        drg.Resya Permatasari
+                        </label>
+                    </div>
+                </div>
+            </div>
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-warning" (click)="modal.close('Save click');updatePasien()">Simpan</button>
+        </div>
+    </ng-template>
 
 </div>
 

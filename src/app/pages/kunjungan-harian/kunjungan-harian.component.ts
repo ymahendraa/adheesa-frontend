@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { KonsulPasienService } from 'src/app/services/pasien/konsul-pasien.service';
 
 @Component({
@@ -14,10 +15,13 @@ export class KunjunganHarianComponent implements OnInit {
   tanggal='';
   kunjungans:any;
   constructor(
+    private datePipe: DatePipe,
     private konsulService : KonsulPasienService,
   ) { }
 
   ngOnInit(): void {
+    var date = new Date();
+    this.tanggal=this.datePipe.transform(date,"yyyy-M-d"); //output : 2018-02-13
     this.retrieveKunjungan();
     this.get();
   }
@@ -63,9 +67,7 @@ export class KunjunganHarianComponent implements OnInit {
         this.kunjungans = data;
         console.log(data);
         this.result = data.length;
-        if (e.target.value == '') {
-          this.result = 0;
-        }
+        
       },
       error => {
         console.log(error);

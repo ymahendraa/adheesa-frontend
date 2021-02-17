@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 
 const baseUrl = 'http://localhost:8080/api/datalabs';
 
-
 @Injectable({
   providedIn: 'root'
 })

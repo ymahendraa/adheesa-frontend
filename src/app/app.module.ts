@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { RegisPasienComponent } from './pages/pasien/regis-pasien/regis-pasien.component';
@@ -97,7 +98,7 @@ import { LaporanBulananComponent } from './pages/laporan/laporan-bulanan/laporan
       }
     ])
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

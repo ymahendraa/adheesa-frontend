@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { KonsulPasienService } from 'src/app/services/pasien/konsul-pasien.service';
+import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'app-laporan-harian',
   templateUrl: './laporan-harian.component.html',
@@ -19,11 +21,14 @@ export class LaporanHarianComponent implements OnInit {
 
   totalKKamil;totalKAmmar;totalKResya : number;
   constructor(
-    private konsulService : KonsulPasienService
+    private konsulService : KonsulPasienService,
+    private datePipe: DatePipe
   ) { }
 
   ngOnInit(): void {
     // this.retrieveKunjungan();
+    var date = new Date();
+    this.tanggal=this.datePipe.transform(date,"yyyy-M-d"); //output : 2018-02-13
   }
 
   showDate = (d) => {

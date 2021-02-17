@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PasienService } from 'src/app/services/pasien/pasien.service';
 import { KonsulPasienService } from 'src/app/services/pasien/konsul-pasien.service';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-detail-pasien',
@@ -9,8 +10,10 @@ import { KonsulPasienService } from 'src/app/services/pasien/konsul-pasien.servi
   styleUrls: ['./detail-pasien.component.css']
 })
 export class DetailPasienComponent implements OnInit {
+  closeResult = '';
   currentPasien = null;
   currentRiwayat = null;
+  currentRiwayatIndex = -1;
   konsuls : any;
   header = `Detail data`
   // message = '';
@@ -19,7 +22,8 @@ export class DetailPasienComponent implements OnInit {
     private pasienService : PasienService,
     private konsulService : KonsulPasienService,
     private route : ActivatedRoute,
-    private router : Router ) { }
+    private router : Router,
+    private modalService: NgbModal) { }
   
 
   ngOnInit(): void {
@@ -27,6 +31,38 @@ export class DetailPasienComponent implements OnInit {
     console.log(this.route.snapshot.paramMap)
     this.getPasien(this.route.snapshot.paramMap.get('pasien_id'));
     this.retrieveKonsul(this.route.snapshot.paramMap.get('pasien_id'));
+  }
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title',size:'lg'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+
+  setActiveRiwayat = (pasien, index) => {
+    this.currentRiwayat = pasien;
+    this.currentRiwayatIndex = index;
+  }
+
+  radioChangeHandler = (e:any) => {
+    this.currentRiwayat.dpjp = e.target.value;
+  }
+
+  showDate = (d) => {
+    this.currentRiwayat.tanggal = d["year"].toString() +'-'+ d["month"].toString()  +'-'+ d["day"].toString();
+    // console.log(this.currentPasien.tanggal_lahir)
   }
 
   newId:any;
@@ -62,4 +98,19 @@ export class DetailPasienComponent implements OnInit {
         }
       )
   }
+  message=''
+  updatePasien = () => {
+    this.konsulService.update(this.currentRiwayat.riwayat_id, this.currentRiwayat)
+      .subscribe(
+        response =>{
+          console.log(response);
+          this.message = `Data kunjungan berhasil diubah`;
+          alert(this.message);
+        },
+        error =>{
+          console.log(error);
+        }
+      )
+  }
+
 }

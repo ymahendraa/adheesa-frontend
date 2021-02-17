@@ -4,7 +4,7 @@
             <div class="container col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Tanggal : {{tanggal}}</h4>
+                        <h4 class="card-title">Tahun : {{selectedTahun}}</h4>
                         <div class="card-tools">
                             <div class="col-sm-10">
                                 <div class="form-group">
@@ -38,6 +38,13 @@
                             </tr> 
                         </thead>
                         <tbody>
+                            <tr *ngFor="let kunjungan of kunjungansKamil;">
+                                <td> {{kunjungan.bulan}} </td>
+                                <td> {{kunjungan.data.jumlah}} </td>
+                                <td> {{kunjungan.data.total}} </td>
+                            </tr>
+                        </tbody>
+                        <!-- <tbody>
                             <tr>
                                 <td> Januari </td>
                                 <td> {{kunjunganKamilJan.jumlah}} </td>
@@ -99,7 +106,7 @@
                                 <td> {{kunjunganKamilDes.total}} </td>
                             </tr>
                             
-                        </tbody>
+                        </tbody> -->
                     </table>
                 </div>
                 <div class="card-footer">
@@ -124,6 +131,13 @@
                                 </tr> 
                             </thead>
                             <tbody>
+                                <tr *ngFor="let kunjungan of kunjungansAmmar;">
+                                    <td> {{kunjungan.bulan}} </td>
+                                    <td> {{kunjungan.data.jumlah}} </td>
+                                    <td> {{kunjungan.data.total}} </td>
+                                </tr>
+                            </tbody>
+                            <!-- <tbody>
                                 <tr>
                                     <td> Januari </td>
                                     <td> {{kunjunganAmmarJan.jumlah}} </td>
@@ -184,7 +198,7 @@
                                     <td> {{kunjunganAmmarDes.jumlah}} </td>
                                     <td> {{kunjunganAmmarDes.total}} </td>
                                 </tr>
-                            </tbody>
+                            </tbody> -->
                         </table>
                     </div>
                     <div class="card-footer">
@@ -209,6 +223,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <tr *ngFor="let kunjungan of kunjungansResya;">
+                                <td> {{kunjungan.bulan}} </td>
+                                <td> {{kunjungan.data.jumlah}} </td>
+                                <td> {{kunjungan.data.total}} </td>
+                            </tr>
+                        </tbody>
+                        <!-- <tbody>
                             <tr>
                                 <td> Januari </td>
                                 <td> {{kunjunganResyaJan.jumlah}} </td>
@@ -269,7 +290,7 @@
                                 <td> {{kunjunganResyaDes.jumlah}} </td>
                                 <td> {{kunjunganResyaDes.total}} </td>
                             </tr>
-                        </tbody>
+                        </tbody> -->
                     </table>
                 </div>
                 <div class="card-footer">

@@ -32,7 +32,7 @@
                     <tbody>
                         <tr *ngFor="let kunjungan of kunjungans;let i = index" >
                             <th scope="row">{{ i + 1 }}</th>
-                            <td> {{kunjungan.riwayat_id}}</td>
+                            <td> {{kunjungan.Pasien.pasien_id}}</td>
                             <td> {{kunjungan.Pasien.nama_pasien}} </td>
                             <td> {{kunjungan.perawatan}} </td>
                             <td> {{kunjungan.biaya}} </td>
