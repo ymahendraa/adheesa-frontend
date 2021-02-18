@@ -22,6 +22,7 @@ import { RegisLaboratoriumComponent } from './pages/laboratorium/regis-laborator
 import { DataLabComponent } from './pages/laboratorium/data-lab/data-lab.component';
 import { LaporanHarianComponent } from './pages/laporan/laporan-harian/laporan-harian.component';
 import { LaporanBulananComponent } from './pages/laporan/laporan-bulanan/laporan-bulanan.component';
+import { FooterComponent } from './layouts/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { LaporanBulananComponent } from './pages/laporan/laporan-bulanan/laporan
     RegisLaboratoriumComponent,
     DataLabComponent,
     LaporanHarianComponent,
-    LaporanBulananComponent
+    LaporanBulananComponent,
+    FooterComponent
   ],
   imports: [
     FontAwesomeModule,

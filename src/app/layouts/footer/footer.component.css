@@ -1,0 +1,33 @@
+footer{
+    background-color: rgb(228, 94, 161);
+    height: 190px;
+    align-content: center;
+}
+.content{
+    margin-left: -10%;
+    padding-top: 3%;
+}
+.container-fluid{
+    margin-top: 4%;
+}
+#dev{
+    color: black;
+    font-weight:500;
+}
+#devp{
+    margin-top: 4%;
+    margin-bottom: 0.5%;
+}
+#ver{
+    margin-top: -0.5%;
+}
+#info{
+    color: white;
+}
+hr{
+    margin-bottom: -3%;
+    margin-top: 3%;
+    display: block;
+    border-width: 4px;
+    border-color: rgb(214, 56, 135);
+}
