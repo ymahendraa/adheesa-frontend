@@ -29,6 +29,7 @@ export class LaporanHarianComponent implements OnInit {
     // this.retrieveKunjungan();
     var date = new Date();
     this.tanggal=this.datePipe.transform(date,"yyyy-M-d"); //output : 2018-02-13
+    this.searchTanggal();
   }
 
   showDate = (d) => {
@@ -84,7 +85,7 @@ export class LaporanHarianComponent implements OnInit {
   // }
 
 
-  searchTanggal = (e) => {
+  searchTanggal = () => {
     this.konsulService.findByTanggalKamil(this.tanggal)
       .subscribe(
         data => {

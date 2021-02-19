@@ -22,7 +22,8 @@ export class KunjunganHarianComponent implements OnInit {
   ngOnInit(): void {
     var date = new Date();
     this.tanggal=this.datePipe.transform(date,"yyyy-M-d"); //output : 2018-02-13
-    this.retrieveKunjungan();
+    // this.retrieveKunjungan();
+    this.searchTanggal();
     this.get();
   }
 
@@ -60,14 +61,13 @@ export class KunjunganHarianComponent implements OnInit {
   }
 
   result=0;
-  searchTanggal = (e) => {
+  searchTanggal = () => {
     this.konsulService.findByTanggal(this.tanggal)
     .subscribe(
       data => {
         this.kunjungans = data;
         console.log(data);
         this.result = data.length;
-        
       },
       error => {
         console.log(error);

@@ -43,7 +43,7 @@ export class KonsulPasienService {
   }
 
   findByTanggal(tanggal): Observable<any> {
-    return this.http.get(`${baseUrl}/dpjp/drg.kamil?tanggal=${tanggal}`);
+    return this.http.get(`${baseUrl}/?tanggal=${tanggal}`);
   }
 
   findByTanggalKamil(tanggal): Observable<any> {
